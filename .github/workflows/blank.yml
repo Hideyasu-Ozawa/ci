@@ -36,4 +36,4 @@ jobs:
             echo first
           elif true; then
             echo second
-          sha=${{ github.sha }} && echo ${sha:0:5}
+            sha=${{ github.sha }} && echo ${sha:0:5}
