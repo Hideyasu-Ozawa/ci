@@ -48,9 +48,13 @@ jobs:
         if: startsWith( 'hi', 'hi' ) && !startsWith( github.ref, 'refs/heads/' ) || startsWith( 'hi', 'hi' )
         run: echo brach 4th
         
-      - name: Run a one-line script4
+      - name: Run a one-line script5
         if: startsWith( 'hi', 'his' ) && startsWith( github.ref, 'refs/heads/' ) || startsWith( 'hi', 'hi' )
-        run: echo brach 4th
+        run: echo brach 5th
+        
+      - name: Run a one-line script6
+        if: startsWith( 'hi', 'his' )
+        run: echo brach 5th
       
       - name: Run a one-line script
         if: startsWith( github.ref, 'refs/tags/v' )
