@@ -29,16 +29,28 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: Run a one-line script1
         run: echo ${{github.ref}}
       
-      - name: Run a one-line script
+      - name: Run a one-line script2
         if: startsWith( 'hi', 'hi' ) && startsWith( github.ref, 'refs/heads/' )
         run: echo brach 1st
       
-      - name: Run a one-line script
+      - name: Run a one-line script3
         if: startsWith( 'hi', 'hi' ) && !startsWith( github.ref, 'refs/heads/' )
         run: echo brach 2nd
+      
+      - name: Run a one-line script3
+        if: startsWith( 'hi', 'hi' ) && startsWith( github.ref, 'refs/heads/' ) || startsWith( 'hi', 'hi' )
+        run: echo brach 3rd
+        
+      - name: Run a one-line script4
+        if: startsWith( 'hi', 'hi' ) && !startsWith( github.ref, 'refs/heads/' ) || startsWith( 'hi', 'hi' )
+        run: echo brach 4th
+        
+      - name: Run a one-line script4
+        if: startsWith( 'hi', 'his' ) && startsWith( github.ref, 'refs/heads/' ) || startsWith( 'hi', 'hi' )
+        run: echo brach 4th
       
       - name: Run a one-line script
         if: startsWith( github.ref, 'refs/tags/v' )
