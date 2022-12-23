@@ -48,6 +48,11 @@ jobs:
 #         run: echo TAG=hoge >> $GITHUB_ENV
         
       - name: Run a one-line script5
+        if: ${{ env.TAG }}==""
+        run: echo ${{ env.TAG }}
+        
+      - name: Run a one-line script6
+        if: ${{ env.TAG }}==null
         run: echo ${{ env.TAG }}
       
       - name: Run a one-line script
