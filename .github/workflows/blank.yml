@@ -38,27 +38,15 @@ jobs:
         run: |
           echo ${{github.ref}}
           echo ${{inputs.env}}
-      
-      - name: Run a one-line script2
-        if: startsWith( 'hi', 'hi' ) && startsWith( github.ref, 'refs/heads/' )
-        run: echo brach 1st
-      
-      - name: Run a one-line script3
-        if: startsWith( 'hi', 'hi' ) && !startsWith( github.ref, 'refs/heads/' )
-        run: echo brach 2nd
-      
-      - name: Run a one-line script3
-        if: startsWith( 'hi', 'hi' ) && startsWith( github.ref, 'refs/heads/' ) || startsWith( 'hi', 'hi' )
-        run: echo brach 3rd
         
-      - name: Run a one-line script4
+      - name: Run a one-line script2
         run: echo TAG=hoge >> $GITHUB_ENV
         
-      - name: Run a one-line script5
+      - name: Run a one-line script3
         run: | 
           if ${{ github.event_name == 'workflow_dispatch' }} then;
             echo hi
-          else then;
+          else
             echo else
           fi
       
