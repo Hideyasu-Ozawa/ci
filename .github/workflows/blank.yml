@@ -44,8 +44,8 @@ jobs:
         if: startsWith( 'hi', 'hi' ) && startsWith( github.ref, 'refs/heads/' ) || startsWith( 'hi', 'hi' )
         run: echo brach 3rd
         
-      - name: Run a one-line script4
-        run: echo TAG=hoge >> $GITHUB_ENV
+#       - name: Run a one-line script4
+#         run: echo TAG=hoge >> $GITHUB_ENV
         
       - name: Run a one-line script5
         run: echo ${{ env.TAG }}
