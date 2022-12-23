@@ -37,7 +37,7 @@ jobs:
       - name: Run a one-line script1
         run: |
           echo ${{github.ref}}
-          echo ${{input.env}}
+          echo ${{inputs.env}}
       
       - name: Run a one-line script2
         if: startsWith( 'hi', 'hi' ) && startsWith( github.ref, 'refs/heads/' )
