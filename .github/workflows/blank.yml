@@ -47,7 +47,7 @@ jobs:
           if ${{ github.event_name == 'workflow_dispatch' }} then;
             echo hi
           else
-            echo else
+            echo hey
           fi
       
       - name: Run a one-line script
