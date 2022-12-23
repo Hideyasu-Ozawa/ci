@@ -33,11 +33,11 @@ jobs:
         run: echo ${{github.ref}}
       
       - name: Run a one-line script
-        if: ${ startsWith( 'hi', 'hi' ) } && ${ startsWith( github.ref, 'refs/heads/' ) } 
+        if: startsWith( 'hi', 'hi' ) && $startsWith( github.ref, 'refs/heads/' )
         run: echo brach 1st
       
       - name: Run a one-line script
-        if: ${ startsWith( 'hi', 'hi' ) } && ${ !startsWith( github.ref, 'refs/heads/' ) } 
+        if: startsWith( 'hi', 'hi' ) && !startsWith( github.ref, 'refs/heads/' )
         run: echo brach 2nd
       
       - name: Run a one-line script
