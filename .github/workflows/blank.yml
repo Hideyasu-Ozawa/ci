@@ -33,7 +33,7 @@ jobs:
         run: echo ${GITHUB_REF##*/}
       
       - name: Run a one-line script
-        if: ${GITHUB_REF##*/} == 'master'
+        if: GITHUB_REF##*/ == 'master'
         run: echo hi
 
       # Runs a set of commands using the runners shell
