@@ -55,9 +55,8 @@ jobs:
         run: echo TAG=hoge >> $GITHUB_ENV
         
       - name: Run a one-line script5
-        if: github.event_name == 'workflow_dispatch' 
         run: | 
-          if github.event_name == 'workflow_dispatch' then;
+          if ${{ github.event_name == 'workflow_dispatch' }} then;
             echo hi
           else then;
             echo else
