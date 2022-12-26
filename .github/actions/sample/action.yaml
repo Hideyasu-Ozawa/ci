@@ -17,5 +17,5 @@ runs:
       uses: actions/checkout@v3
 
     - name: echo
-      run: echo ${input.module}
+      run: echo ${inputs.module}
       shell: bash
