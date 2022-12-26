@@ -1,0 +1,21 @@
+name: sample
+description: sample
+
+inputs:
+  module:
+    description: "module client or server"
+    required: true
+  # env:
+  #   description: "env test or production"
+  #   required: true
+
+runs:
+  using: composite
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: echo
+      run: echo ${input.module}
+      shell: bash
