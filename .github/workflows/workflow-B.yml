@@ -31,13 +31,13 @@ jobs:
 
       - name: Set TAG to GITHUB_ENV
         run: |
-          if [ ${{ inputs.env }} == "dev" && ${{ github.ref }} == refs/heads/* ]; then
+          if [[ ${{ inputs.env }} == "dev" && ${{ github.ref }} == refs/heads/* ]]; then
             sha=${{ github.sha }}
             echo TAG=${sha:0:6} >> $GITHUB_ENV
-          elif [ ( ${{ inputs.env }} == "dev" && ${{ github.ref }} == refs/tags/* ) || ${{ inputs.env }} == "prod" ]
+          elif [[ ( ${{ inputs.env }} == "dev" && ${{ github.ref }} == refs/tags/* ) || ${{ inputs.env }} == "prod" ]]
             echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
           fi
 
-      - name: echoz
+      - name: echo
         run: |
           echo ${{ env.TAG }}
