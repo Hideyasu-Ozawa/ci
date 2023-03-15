@@ -1,0 +1,7 @@
+name: Caller Job
+on:
+  workflow_dispatch:
+
+jobs:
+  Reuse:
+    uses: ./.github/workflows/workflow-B.yml
