@@ -21,8 +21,8 @@ jobs:
   #     - run: echo caller job1-step2!
   Reuse:
     uses: ./.github/workflows/workflow-B.yml
-    # with:
-    #   name: foo
+    with:
+      env: dev
     # secrets:
     #   sample_secret_key: ${{ secrets.SAMPLE_SECRET_KEY }}
   # caller-job2:
