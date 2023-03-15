@@ -6,9 +6,9 @@ on:
       name:
         required: true
         type: string
-  #   secrets:
-  #     token:
-  #       required: true
+    secrets:
+      sample_secret_key:
+        required: true
 
 jobs:
   called-job1:
@@ -17,6 +17,7 @@ jobs:
       - run: echo called job1-step1!
       - run: echo called job1-step2!
       - run: echo inputs name ${{ inputs.name }}
+      - run: echo secrets.sample_secret_key ${{ secrets.sample_secret_key }}
     #   - uses: actions/labeler@v4
     #     with:
     #       repo-token: ${{ secrets.token }}
