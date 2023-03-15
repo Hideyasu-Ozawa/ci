@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
 
   push:
+    branches:
+      - "feature/**"
+
     paths:
       - "/.github/workflows/workflow-A.yml"
       - "/.github/workflows/workflow-B.yml"
