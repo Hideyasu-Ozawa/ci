@@ -22,7 +22,7 @@ jobs:
   Reuse:
     uses: ./.github/workflows/workflow-B.yml
     with:
-      env: prod
+      env: dev
     # secrets:
     #   sample_secret_key: ${{ secrets.SAMPLE_SECRET_KEY }}
   # caller-job2:
