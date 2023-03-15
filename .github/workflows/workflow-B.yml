@@ -1,4 +1,4 @@
-name: Reusable workflow example
+name: Called
 
 on:
   workflow_call:
@@ -11,11 +11,18 @@ on:
   #       required: true
 
 jobs:
-  triage:
+  called-job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo called!
+      - run: echo called job1-step1!
+      - run: echo called job1-step2!
     #   - uses: actions/labeler@v4
     #     with:
     #       repo-token: ${{ secrets.token }}
     #       configuration-path: ${{ inputs.config-path }}
+
+  called-job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo called job2-step1!
+      - run: echo called job2-step2!

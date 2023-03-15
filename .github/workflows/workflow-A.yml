@@ -1,7 +1,17 @@
-name: Caller Job
+name: Caller
 on:
   workflow_dispatch:
 
 jobs:
+  caller-job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo caller job1-step1!
+      - run: echo caller job1-step2!
   Reuse:
     uses: ./.github/workflows/workflow-B.yml
+  caller-job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo caller job2-step1!
+      - run: echo caller job2-step2!
