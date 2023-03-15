@@ -2,6 +2,14 @@ name: Caller
 on:
   workflow_dispatch:
 
+  push:
+    paths:
+      - "/.github/workflows/workflow-A.yml"
+      - "/.github/workflows/workflow-B.yml"
+
+    tags:
+      - "test/*"
+
 jobs:
   # caller-job1:
   #   runs-on: ubuntu-latest
