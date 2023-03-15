@@ -10,6 +10,8 @@ jobs:
       - run: echo caller job1-step2!
   Reuse:
     uses: ./.github/workflows/workflow-B.yml
+    with:
+      name: foo
   caller-job2:
     runs-on: ubuntu-latest
     steps:
