@@ -32,7 +32,7 @@ jobs:
       - name: Set TAG to GITHUB_ENV
         run: |
           if [[ ${{ inputs.env }} == "dev" ]]; then
-            if [[ ${{ github.ref }} =~ refs/heads/ ]]
+            if [[ ${{ github.ref }} =~ refs/heads/ ]]; then
               sha=${{ github.sha }}
               echo TAG=${sha:0:6} >> $GITHUB_ENV
             elif [[ ${{ github.ref }} =~ refs/tags/* ]]; then
