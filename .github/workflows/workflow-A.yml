@@ -3,19 +3,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  caller-job1:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo caller job1-step1!
-      - run: echo caller job1-step2!
+  # caller-job1:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo caller job1-step1!
+  #     - run: echo caller job1-step2!
   Reuse:
     uses: ./.github/workflows/workflow-B.yml
-    with:
-      name: foo
-    secrets:
-      sample_secret_key: ${{ secrets.SAMPLE_SECRET_KEY }}
-  caller-job2:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo caller job2-step1!
-      - run: echo caller job2-step2!
+    # with:
+    #   name: foo
+    # secrets:
+    #   sample_secret_key: ${{ secrets.SAMPLE_SECRET_KEY }}
+  # caller-job2:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo caller job2-step1!
+  #     - run: echo caller job2-step2!

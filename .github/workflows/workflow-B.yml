@@ -2,29 +2,45 @@ name: Called
 
 on:
   workflow_call:
-    inputs:
-      name:
-        required: true
-        type: string
-    secrets:
-      sample_secret_key:
-        required: true
+    # inputs:
+    #   name:
+    #     required: true
+    #     type: string
+    # secrets:
+    #   sample_secret_key:
+    #     required: true
 
 jobs:
-  called-job1:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo called job1-step1!
-      - run: echo called job1-step2!
-      - run: echo inputs name ${{ inputs.name }}
-      - run: echo secrets.sample_secret_key ${{ secrets.sample_secret_key }}
-    #   - uses: actions/labeler@v4
-    #     with:
-    #       repo-token: ${{ secrets.token }}
-    #       configuration-path: ${{ inputs.config-path }}
+  # called-job1:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo called job1-step1!
+  #     - run: echo called job1-step2!
+  #     - run: echo inputs name ${{ inputs.name }}
+  #     - run: echo secrets.sample_secret_key ${{ secrets.sample_secret_key }}
+  #   #   - uses: actions/labeler@v4
+  #   #     with:
+  #   #       repo-token: ${{ secrets.token }}
+  #   #       configuration-path: ${{ inputs.config-path }}
 
   called-job2:
     runs-on: ubuntu-latest
     steps:
-      - run: echo called job2-step1!
-      - run: echo called job2-step2!
+      # - run: echo called job2-step1!
+      # - run: echo called job2-step2!
+
+      - name: Set TAG to GITHUB_ENV
+        run: |
+          if [ 20 -gt 30 ]; then
+            echo “Over 30”
+          else
+            echo “Under 30”
+          fi
+
+      # - name: Set TAG to GITHUB_ENV
+      #   if: inputs.env == 'dev' && startsWith( github.ref, 'refs/heads/' )
+      #   run: sha=${{ github.sha }} && echo TAG=${sha:0:6} >> $GITHUB_ENV
+
+      # - name: Set TAG to GITHUB_ENV
+      #   if: inputs.env == 'dev' && startsWith( github.ref, 'refs/tags/' ) || inputs.env == 'prod'
+      #   run: echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
