@@ -22,23 +22,20 @@ jobs:
     steps:
       - name: Set TAG to GITHUB_ENV
         run: |
-          if [[ $ENVIRONMENT == "dev" ]]; then
-            if [[ ${{ github.ref }} =~ refs/heads/ ]]; then
-              sha=${{ github.sha }}
-              echo TAG=${sha:0:6} >> $GITHUB_ENV
-           elif [[ ${{ github.ref }} =~ refs/tags/ ]]; then
-               echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
-           fi
-          elif [[ $ENVIRONMENT == "prod" ]]; then
-           echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
+          if [[ ${{ github.ref }} =~ refs/heads/ ]]; then
+            sha=${{ github.sha }}
+            echo TAG=${sha:0:6} >> $GITHUB_ENV
+          elif [[ ${{ github.ref }} =~ refs/tags/ ]]; then
+             echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
           fi
+
   Echo:
     needs: Set_TAG
     runs-on: ubuntu-latest
     steps:
       - name: Echo
         run: |
-          echo ${{ env.TAG }}
+          echo $TAG
   # caller-job1:
   #   runs-on: ubuntu-latest
   #   steps:
