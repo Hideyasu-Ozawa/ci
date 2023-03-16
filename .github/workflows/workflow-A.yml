@@ -13,6 +13,9 @@ on:
     tags:
       - "test/*"
 
+env:
+  ENVIRONMENT: dev
+
 jobs:
   Set_TAG:
     runs-on: ubuntu-latest
