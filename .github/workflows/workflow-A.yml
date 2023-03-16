@@ -26,9 +26,12 @@ jobs:
             sha=${{ github.sha }}
             echo "export TAG=${sha:0:6}" >> $GITHUB_ENV
           elif [[ ${{ github.ref }} =~ refs/tags/ ]]; then
-             echo "export TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
+            echo "export TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
           fi
-          echo $TAG
+
+      - name: Echo
+        run: |
+          echo tag $TAG
 
   Echo:
     needs: Set_TAG
