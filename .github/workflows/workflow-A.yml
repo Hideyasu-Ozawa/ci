@@ -19,7 +19,6 @@ jobs:
     outputs:
       TAG: ${{steps.set_tag_step.outputs.TAG}}
     steps:
-      - name: Set TAG to GITHUB_OUTPUT
       - id: set_tag_step
         run: |
           echo github.ref ${{ github.ref }}
