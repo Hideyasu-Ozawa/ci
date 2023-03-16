@@ -24,9 +24,9 @@ jobs:
         run: |
           if [[ ${{ github.ref }} =~ refs/heads/ ]]; then
             sha=${{ github.sha }}
-            echo TAG=${sha:0:6} >> $GITHUB_ENV
+            echo "export TAG=${sha:0:6}" >> $GITHUB_ENV
           elif [[ ${{ github.ref }} =~ refs/tags/ ]]; then
-             echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
+             echo "export TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
           fi
 
   Echo:
