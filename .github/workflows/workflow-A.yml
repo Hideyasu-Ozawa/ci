@@ -38,7 +38,7 @@ jobs:
     steps:
       - name: Echo
         run: |
-          echo $TAG
+          echo ${{ env.TAG }}
   # caller-job1:
   #   runs-on: ubuntu-latest
   #   steps:
