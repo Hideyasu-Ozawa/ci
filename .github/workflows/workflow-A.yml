@@ -16,18 +16,19 @@ on:
 jobs:
   Set_TAG:
     runs-on: ubuntu-latest
+    outputs:
+      TAG: ${{steps.set_tag_step.outputs.TAG}}
     steps:
-      - name: Set TAG to GITHUB_ENV
+      - name: Set TAG to GITHUB_OUTPUT
+      - id: set_tag_step
         run: |
           echo github.ref ${{ github.ref }}
           if [[ ${{ github.ref }} =~ refs/heads/ ]]; then
             sha=${{ github.sha }}
-            echo TAG=${sha:0:6} >> $GITHUB_ENV
+            echo TAG=${sha:0:6} >> $GITHUB_OUTPUT
           elif [[ ${{ github.ref }} =~ refs/tags/ ]]; then
-            echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
+            echo TAG=${GITHUB_REF##*/} >> $GITHUB_OUTPUT
           fi
-      - name: Echo
-        run: echo ${{ env.TAG }}
 
   Echo:
     needs: Set_TAG
@@ -35,8 +36,8 @@ jobs:
     steps:
       - name: Echo
         run: |
-          if [ -n "$TAG" ]; then
-            echo tag $TAG
+          if [ -n ${{needs.Set_TAG.outputs.TAG}} ]; then
+            echo tag ${{needs.Set_TAG.outputs.TAG}}
           else
             echo "TAG is not defined"
             exit 1
