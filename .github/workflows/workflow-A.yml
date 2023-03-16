@@ -26,6 +26,8 @@ jobs:
           elif [[ ${{ github.ref }} =~ refs/tags/ ]]; then
             echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
           fi
+      - name: Echo
+        run: echo ${{ env.TAG }}
 
   Echo:
     needs: Set_TAG
