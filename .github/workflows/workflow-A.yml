@@ -35,8 +35,9 @@ jobs:
     steps:
       - name: Echo
         run: |
-          if [ -n ${{needs.Set_TAG.outputs.TAG}} ]; then
-            echo tag ${{needs.Set_TAG.outputs.TAG}}
+          TAG=${{needs.Set_TAG.outputs.TAG}}
+          if [ -n $TAG ]; then
+            echo tag $TAG
           else
             echo "TAG is not defined"
             exit 1
