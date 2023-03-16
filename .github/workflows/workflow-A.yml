@@ -30,6 +30,7 @@ jobs:
            echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
           fi
   Echo:
+    needs: Set_TAG
     runs-on: ubuntu-latest
     steps:
       - name: Echo
