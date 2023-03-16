@@ -14,17 +14,38 @@ on:
       - "test/*"
 
 jobs:
+  Set_TAG:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set TAG to GITHUB_ENV
+        run: |
+          if [[ $ENVIRONMENT == "dev" ]]; then
+            if [[ ${{ github.ref }} =~ refs/heads/ ]]; then
+              sha=${{ github.sha }}
+              echo TAG=${sha:0:6} >> $GITHUB_ENV
+           elif [[ ${{ github.ref }} =~ refs/tags/ ]]; then
+               echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
+           fi
+          elif [[ $ENVIRONMENT == "prod" ]]; then
+           echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
+          fi
+  Echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo
+        run: |
+          echo $TAG
   # caller-job1:
   #   runs-on: ubuntu-latest
   #   steps:
   #     - run: echo caller job1-step1!
   #     - run: echo caller job1-step2!
-  Reuse:
-    uses: ./.github/workflows/workflow-B.yml
-    with:
-      env: dev
-    # secrets:
-    #   sample_secret_key: ${{ secrets.SAMPLE_SECRET_KEY }}
+  # Reuse:
+  #   uses: ./.github/workflows/workflow-B.yml
+  #   with:
+  #     env: dev
+  # secrets:
+  #   sample_secret_key: ${{ secrets.SAMPLE_SECRET_KEY }}
   # caller-job2:
   #   runs-on: ubuntu-latest
   #   steps:
