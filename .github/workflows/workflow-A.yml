@@ -28,6 +28,7 @@ jobs:
           elif [[ ${{ github.ref }} =~ refs/tags/ ]]; then
              echo "export TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
           fi
+          echo $TAG
 
   Echo:
     needs: Set_TAG
