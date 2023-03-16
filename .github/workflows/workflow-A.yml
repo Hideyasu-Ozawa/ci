@@ -13,9 +13,6 @@ on:
     tags:
       - "test/*"
 
-env:
-  ENVIRONMENT: dev
-
 jobs:
   Set_TAG:
     runs-on: ubuntu-latest
@@ -29,17 +26,19 @@ jobs:
             echo "export TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
           fi
 
-      - name: Echo
-        run: |
-          echo tag $TAG
-
   Echo:
     needs: Set_TAG
     runs-on: ubuntu-latest
     steps:
       - name: Echo
         run: |
-          echo $TAG
+          if [ -n "$TAG" ]; then
+            echo tag $TAG
+          else
+            echo "TAG is not defined"
+            exit 1
+          fi
+
   # caller-job1:
   #   runs-on: ubuntu-latest
   #   steps:
