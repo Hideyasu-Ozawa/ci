@@ -21,6 +21,7 @@ jobs:
         run: date -u
 
   Part2:
+    needs: Part1
     name: Approve
     if: inputs.environment == 'prod'
     environment: 
