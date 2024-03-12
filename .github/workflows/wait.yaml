@@ -1,0 +1,34 @@
+
+name: Wait
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "wait"
+        type: environment
+        required: true
+jobs:
+  Wait:
+    name: Echo 1
+    if: inputs.environment == 'prod'
+    environment: prod
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Wait for approval
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.repos.createDeployment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              required_contexts: [],
+              environment: 'prod',
+            })
+
+      - name: Checkout Code
+        run: echo "Hello
