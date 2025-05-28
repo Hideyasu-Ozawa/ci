@@ -13,15 +13,20 @@ on:
 jobs:
   create-issue:
     runs-on: ubuntu-latest
+    env:
+      AUTHOR: ${{ inputs.author }}
+      MESSAGE: ${{ inputs.message }}
     steps:
       - name: Create GitHub Issue
         uses: actions/github-script@v7
         with:
           script: |
             const issueBody = `
-**投稿者**: ${inputs.author}
+**投稿者**: ${process.env.AUTHOR}
+
 **内容**:
-${inputs.message}
+${process.env.MESSAGE}
+
 
 ---
 ※このIssueはTeamsからの投稿により自動生成されました。
