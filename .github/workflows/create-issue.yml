@@ -13,30 +13,26 @@ on:
 jobs:
   create-issue:
     runs-on: ubuntu-latest
+    env:
+      AUTHOR: ${{ inputs.author }}
+      MESSAGE: ${{ inputs.message }}
     steps:
       - name: Create GitHub Issue
         uses: actions/github-script@v7
         with:
           script: |
-            const author = '${{ inputs.author }}';
-            const message = `${{ inputs.message }}`;
+            const author = process.env.AUTHOR;
+            const message = process.env.MESSAGE;
             const issueBody = `
-## Teamsからのフィードバック
-
-**投稿者**: ${author}
-
-**内容**:
-${message}
-
-
----
-※このIssueはTeamsからの投稿により自動生成されました。
+            投稿者: ${author}
+            内容:
+            ${message}
+            ※このIssueはTeamsからの投稿により自動生成されました。
             `;
-
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `Teams投稿 from ${inputs.author}`,
+              title: `Teams from ${author}`,
               body: issueBody,
               labels: ['teams']
             });
