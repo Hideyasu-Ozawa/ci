@@ -24,11 +24,10 @@ body:
     attributes:
       value: |
         ## 📊 定量サマリー
-        数字で今週の活動を可視化してください。
   - type: textarea
     id: kpi-summary
     attributes:
-      label: 定量サマリー
+      label: サマリー
     validations:
       required: true
   - type: markdown
@@ -38,7 +37,7 @@ body:
   - type: textarea
     id: progress-status
     attributes:
-      label: 進捗状況
+      label: 詳細
     validations:
       required: true
   - type: textarea
@@ -51,9 +50,6 @@ body:
     id: team-learning
     attributes:
       label: 今週の学び・気づき
-      placeholder: |
-        - GitHub Flowのレビュー運用を実践し、粒度の大切さを実感
-        - FigmaのUI意図を読み解く力が向上した
     validations:
       required: true
   - type: textarea
