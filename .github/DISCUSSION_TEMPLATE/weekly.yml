@@ -14,3 +14,22 @@ body:
       placeholder: xxx チーム
     validations:
       required: true
+  - type: input
+    id: report-date
+    attributes:
+      label: 報告日
+      placeholder: 2025-07-04
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## 📊 定量サマリー
+        数字で今週の活動を可視化してください。
+  - type: textarea
+    id: kpi-summary
+    attributes:
+      label: 定量サマリー
+    validations:
+      required: true
+      
