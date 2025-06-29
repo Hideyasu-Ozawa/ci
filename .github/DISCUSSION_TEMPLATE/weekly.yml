@@ -6,7 +6,6 @@ body:
     attributes:
       value: |
         ## 📝 基本情報
-        以下を記入してください。
   - type: input
     id: team-name
     attributes:
@@ -21,3 +20,51 @@ body:
       placeholder: 2025年07月04日
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## 📊 定量サマリー
+        数字で今週の活動を可視化してください。
+  - type: textarea
+    id: kpi-summary
+    attributes:
+      label: 定量サマリー
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## ✅ 進捗状況
+  - type: textarea
+    id: progress-status
+    attributes:
+      label: 進捗状況
+    validations:
+      required: true
+  - type: textarea
+    id: team-issues
+    attributes:
+      label: チームとしての課題・困っていること
+    validations:
+      required: true
+  - type: textarea
+    id: team-learning
+    attributes:
+      label: 今週の学び・気づき
+      placeholder: |
+        - GitHub Flowのレビュー運用を実践し、粒度の大切さを実感
+        - FigmaのUI意図を読み解く力が向上した
+    validations:
+      required: true
+  - type: textarea
+    id: next-week-goals
+    attributes:
+      label: 次週の予定
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: その他
+    validations:
+      required: false
