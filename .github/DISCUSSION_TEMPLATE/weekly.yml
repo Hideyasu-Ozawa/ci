@@ -21,8 +21,3 @@ body:
       placeholder: 2025-07-04
     validations:
       required: true
-  - type: markdown
-    attributes:
-      value: |
-        ## 📊 定量サマリー
-        数字で今週の活動を可視化してください。      
