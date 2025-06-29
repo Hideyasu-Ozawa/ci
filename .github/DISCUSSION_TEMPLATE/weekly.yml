@@ -21,7 +21,6 @@ body:
       placeholder: 2025-07-04
     validations:
       required: true
-
   - type: markdown
     attributes:
       value: |
@@ -33,26 +32,22 @@ body:
       label: 定量サマリー
     validations:
       required: true
-
   - type: markdown
     attributes:
       value: |
         ## ✅ 進捗状況
-
   - type: textarea
     id: progress-status
     attributes:
       label: 進捗状況
     validations:
       required: true
-
   - type: textarea
     id: team-issues
     attributes:
       label: チームとしての課題・困っていること
     validations:
       required: true
-
   - type: textarea
     id: team-learning
     attributes:
@@ -62,14 +57,12 @@ body:
         - FigmaのUI意図を読み解く力が向上した
     validations:
       required: true
-
   - type: textarea
     id: next-week-goals
     attributes:
       label: 次週の予定
     validations:
       required: true
-
   - type: textarea
     id: notes
     attributes:
