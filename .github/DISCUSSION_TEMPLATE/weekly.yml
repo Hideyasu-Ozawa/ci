@@ -25,11 +25,4 @@ body:
     attributes:
       value: |
         ## 📊 定量サマリー
-        数字で今週の活動を可視化してください。
-  - type: textarea
-    id: kpi-summary
-    attributes:
-      label: 定量サマリー
-    validations:
-      required: true
-      
+        数字で今週の活動を可視化してください。      
